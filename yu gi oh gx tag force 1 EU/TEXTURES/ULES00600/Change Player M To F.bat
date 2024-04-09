@@ -19,11 +19,13 @@ if exist "%temp_file%" del "%temp_file%"
     set "line=!line:IconF=IconM!"
     set "line=!line:|IconM|=IconF!"
 
+    rem Sostituzione AnimationM con AnimationF e viceversa
+    set "line=!line:AnimationM=|AnimationM|!"
+    set "line=!line:AnimationF=AnimationM!"
+    set "line=!line:|AnimationM|=AnimationF!"
+
     echo !line!
     endlocal
 )) > "%temp_file%"
 
 move /y "%temp_file%" "%input_file%" >nul
-
-echo change the last two values manually textures.ini i.e. Icon M1 to Icon F1 and inverse
-pause
